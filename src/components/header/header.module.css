@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  padding: 7px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 112.682%;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.infoIcon {
+  width: 25px;
+  height: 31px;
+}
+
+.instruction {
+  margin: 0;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+  width: 108px;
+}
