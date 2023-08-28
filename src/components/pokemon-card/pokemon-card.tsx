@@ -49,7 +49,7 @@ export default function PokemonCard({ id }: Props) {
         component="img" 
         src={image}
         alt="покемон" 
-        height={200}
+        height={210}
         alignSelf="center"
         style={{objectFit: 'cover', overflow: 'hidden', aspectRatio: 5/4.1}}
       />
