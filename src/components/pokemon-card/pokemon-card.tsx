@@ -7,10 +7,10 @@ type Props = {
 }
 
 function numWord(value: number){  
-	const num = Math.abs(value) % 100 % 10;
-	if(value > 10 && value < 20) return 'сериях'; 
-	if(num == 1) return 'серии'; 
-	return 'сериях';
+  const num = Math.abs(value) % 100 % 10;
+  if(value > 10 && value < 20) return 'сериях'; 
+  if(num == 1) return 'серии'; 
+  return 'сериях';
 }
 
 export default function PokemonCard({ id }: Props) {
