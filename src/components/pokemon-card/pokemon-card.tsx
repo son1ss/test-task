@@ -14,21 +14,27 @@ function numWord(value: number){
 }
 
 export default function PokemonCard({ id }: Props) {
-  const [name, setName] = useState('')
-  const [height, setHeight] = useState(0)
-  const [attack, setAttack] = useState(0)
-  const [image, setImage] = useState('')
-  const [episodes, setEpisodes] = useState(0)
+  const [currentPokemon, setCurrentPokemon] = useState({
+    name: '',
+    height: 0,
+    attack: 0,
+    image: '',
+    episodes: 0,
+  })
+  const { name, height, attack, image, episodes } = currentPokemon
 
   useEffect(() => {
     getPokemon(id).then(pokemon => {
       const attackStat = pokemon.stats.find(stat => stat.stat.name === 'attack')
-      setName(pokemon.name)
-      setHeight(pokemon.height)
-      attackStat && setAttack(attackStat.base_stat + Math.floor(attackStat.effort / 4))
-      setImage(pokemon.sprites.front_shiny)
+      setCurrentPokemon(prev => ({
+        ...prev,
+        name: pokemon.name,
+        height: pokemon.height,
+        image: pokemon.sprites.front_shiny,
+        attack: attackStat ? attackStat.base_stat + Math.floor(attackStat.effort / 4) : 0,
+      }))
     }).catch(err => console.log(err))
-    getPokemonEpisodes(id).then(amount => setEpisodes(amount))
+    getPokemonEpisodes(id).then(amount => setCurrentPokemon(prev => ({...prev, episodes: amount})))
   }, [id])
 
   return (
